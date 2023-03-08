@@ -24,11 +24,23 @@ def bubble(L, left, right):
 
 
 def selection(L, left, right):
-    pass
+    """Sort the sub-list L[left:right] using selection sort."""
+    for i in range(right - left - 1):
+        biggest_index = left
+        biggest = L[left]
+        for j in range(left + 1, right - i):
+            if L[j] > biggest:
+                biggest = L[j]
+                biggest_index = j
+        L[right - 1 - i], L[biggest_index] = L[biggest_index], L[right - 1 - i]
 
 
 def insertion(L, left, right):
-    pass
+    """Sort the sub-list L[left:right] using insertion sort."""
+    for i in range(left, right - 1):
+        for j in range(right - i - 2, right - 1):
+            if L[j] > L[j + 1]:
+                L[j], L[j + 1] = L[j + 1], L[j]
 
 
 def sort_halfsorted(L, sort):
